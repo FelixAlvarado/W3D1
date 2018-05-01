@@ -114,13 +114,15 @@ def casablanca_cast
   # in the previous question directly in your query (for example, id = 1).
   execute(<<-SQL)
   SELECT
-    name
+    actors.name
   FROM
     actors
      JOIN castings
      on actor.id = castings.actor_id
+     JOIN movies
+     on castings.movie_id = movies.id
   WHERE
-  castings.actor_id = 27
+  movies.id = 27
   SQL
 end
 
